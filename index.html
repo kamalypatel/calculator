@@ -4,9 +4,8 @@
 
        .header {
            grid-area: header;
-           display: block;
-           margin-left: auto;
-           margin-right: auto;
+           display: flex;
+           height: 40px;
            padding: 10px 30px;
            border: 2px solid black;
            background-color: white;
@@ -192,27 +191,27 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="header" id="display">ANSWER</div>
-        <button class="clear">C</button>
+        <div class="header" id="display"></div>
+        <button class="clear" id="clear">C</button>
         <div></div>
         <div></div>
-        <button class="divide">/</button>
+        <button class="divide" id="divide">/</button>
         <button class="seven" id="seven">7</button>
         <button class="eight" id="eight">8</button>
-        <button class="nine">9</button>
-        <button class="multiply">*</button>
-        <button class="four">4</buttonv>
-        <button class="five">5</button>
-        <button class="six">6</button>
-        <button class="subtract">-</button>
-        <button class="one">1</button>
-        <button class="two">2</button>
-        <button class="three">3</button>
-        <button class="add">+</button>
+        <button class="nine" id="nine">9</button>
+        <button class="multiply" id="multiply">*</button>
+        <button class="four" id="four">4</buttonv>
+        <button class="five" id="five">5</button>
+        <button class="six" id="six">6</button>
+        <button class="subtract" id="subtract">-</button>
+        <button class="one" id="one">1</button>
+        <button class="two" id="two">2</button>
+        <button class="three" id="three">3</button>
+        <button class="add" id="add">+</button>
         <div></div>
-        <button class="zero">0</button>
+        <button class="zero" id="zero">0</button>
         <div></div>
-        <button class="equal">=</button>
+        <button class="equal" id="equal">=</button>
     </div>
     <script>
         function add(entry, change) {
@@ -242,10 +241,58 @@
         let entries = {
 
         };
-        document.getElementById("seven").addEventListener("click", displayToHeader);
 
-        function displayToHeader() {
-            document.getElementById("header").innerhtml = 7;
-        }
+        let counter = 0;
+
+        const eight = document.querySelector('#eight');
+        eight.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            const innerDisplay = document.createElement('p');
+            innerDisplay.textContent = '8';
+            innerDisplay.className = 'number';
+            display.append(innerDisplay);
+            counter++;
+        })
+
+        const seven = document.querySelector('#seven');
+        seven.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            const innerDisplay = document.createElement('p');
+            innerDisplay.textContent = '7';
+            innerDisplay.className = 'number';
+            display.append(innerDisplay);
+            counter++;
+        })
+
+        const six = document.querySelector('#six');
+        six.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            const innerDisplay = document.createElement('p');
+            innerDisplay.textContent = '6';
+            innerDisplay.className = 'number';
+            display.append(innerDisplay);
+            counter++;
+        })
+        const pluss = document.querySelector('#add');
+        pluss.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            let entries = [];
+            for (i = 0; i < counter; i++) {
+                entries[i] = document.getElementsByClassName('number')[i];
+            }
+            console.log(entries);
+        });
+
+        /* const pluss = document.querySelector('#add');
+        pluss.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            let entries = {
+                p: document.getElementById('display')
+            }
+            let output = Object.values(entries);
+            console.log(output);
+            console.log(entries.p);
+        }); */
+        
     </script>
 </body>
