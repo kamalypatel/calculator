@@ -9,6 +9,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .add {
            grid-area: add;
@@ -17,6 +19,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .subtract {
            grid-area: subtract;
@@ -25,6 +29,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .multiply {
            grid-area: multiply;
@@ -33,6 +39,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .divide {
            grid-area: divide;
@@ -41,6 +49,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .equal {
            grid-area: equal;
@@ -49,6 +59,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .one {
            grid-area: one;
@@ -57,6 +69,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .two {
            grid-area: two;
@@ -65,6 +79,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .three {
            grid-area: three;
@@ -73,6 +89,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .four {
            grid-area: four;
@@ -81,6 +99,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .five {
            grid-area: five;
@@ -89,6 +109,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .six {
            grid-area: six;
@@ -97,6 +119,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .seven {
            grid-area: seven;
@@ -105,6 +129,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .eight {
            grid-area: eight;
@@ -113,6 +139,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .nine {
            grid-area: nine;
@@ -121,6 +149,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .zero {
            grid-area: zero;
@@ -129,6 +159,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
        .clear {
            grid-area: clear;
@@ -137,6 +169,8 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           background-color: white;
+           color: black;
        }
 
        .wrapper {
@@ -158,27 +192,27 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="header">ANSWER</div>
-        <div class="clear">C</div>
+        <div class="header" id="display">ANSWER</div>
+        <button class="clear">C</button>
         <div></div>
         <div></div>
-        <div class="divide">/</div>
-        <div class="seven">7</div>
-        <div class="eight">8</div>
-        <div class="nine">9</div>
-        <div class="multiply">*</div>
-        <div class="four">4</div>
-        <div class="five">5</div>
-        <div class="six">6</div>
-        <div class="subtract">-</div>
-        <div class="one">1</div>
-        <div class="two">2</div>
-        <div class="three">3</div>
-        <div class="add">+</div>
+        <button class="divide">/</button>
+        <button class="seven" id="seven">7</button>
+        <button class="eight" id="eight">8</button>
+        <button class="nine">9</button>
+        <button class="multiply">*</button>
+        <button class="four">4</buttonv>
+        <button class="five">5</button>
+        <button class="six">6</button>
+        <button class="subtract">-</button>
+        <button class="one">1</button>
+        <button class="two">2</button>
+        <button class="three">3</button>
+        <button class="add">+</button>
         <div></div>
-        <div class="zero">0</div>
+        <button class="zero">0</button>
         <div></div>
-        <div class="equal">=</div>
+        <button class="equal">=</button>
     </div>
     <script>
         function add(entry, change) {
@@ -204,6 +238,14 @@
         function operate(operator, entry, change) {
             let answer = operator(entry, change);
             return answer;
+        }
+        let entries = {
+
+        };
+        document.getElementById("seven").addEventListener("click", displayToHeader);
+
+        function displayToHeader() {
+            document.getElementById("header").innerhtml = 7;
         }
     </script>
 </body>
