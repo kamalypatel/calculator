@@ -234,65 +234,145 @@
             return answer;
         };
 
-        function operate(operator, entry, change) {
-            let answer = operator(entry, change);
-            return answer;
-        }
-        let entries = {
-
-        };
-
-        let counter = 0;
+        const nine = document.querySelector('#nine');
+        nine.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '9'
+        })
 
         const eight = document.querySelector('#eight');
         eight.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            const innerDisplay = document.createElement('p');
-            innerDisplay.textContent = '8';
-            innerDisplay.className = 'number';
-            display.append(innerDisplay);
-            counter++;
+            display.innerHTML += '8'
         })
 
         const seven = document.querySelector('#seven');
         seven.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            const innerDisplay = document.createElement('p');
-            innerDisplay.textContent = '7';
-            innerDisplay.className = 'number';
-            display.append(innerDisplay);
-            counter++;
+            display.innerHTML += '7'
         })
 
         const six = document.querySelector('#six');
         six.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            const innerDisplay = document.createElement('p');
-            innerDisplay.textContent = '6';
-            innerDisplay.className = 'number';
-            display.append(innerDisplay);
-            counter++;
+            display.innerHTML += '6'
         })
-        const pluss = document.querySelector('#add');
-        pluss.addEventListener('click', () => {
+
+        const five = document.querySelector('#five');
+        five.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            let entries = [];
-            for (i = 0; i < counter; i++) {
-                entries[i] = document.getElementsByClassName('number')[i];
-            }
+            display.innerHTML += '5'
+        })
+
+        const four = document.querySelector('#four');
+        four.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '4'
+        })
+
+        const three = document.querySelector('#three');
+        three.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '3'
+        })
+
+        const two = document.querySelector('#two');
+        two.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '2'
+        })
+
+        const one = document.querySelector('#one');
+        one.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '1'
+        })
+
+        const zero = document.querySelector('#zero');
+        zero.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            display.innerHTML += '0'
+        })
+
+        counter = 0;
+
+        let entries = {
+
+        };
+
+        let operators = {
+
+        };
+
+        const plus = document.querySelector('#add');
+        plus.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            entries[counter] = entry;
+            counter++;
             console.log(entries);
+            const display = document.querySelector('#display');
+            display.innerHTML = ''
+            let operator = 'add';
+            operators[counter] = operator;
+            console.log(operators);
+            return counter;
         });
 
-        /* const pluss = document.querySelector('#add');
-        pluss.addEventListener('click', () => {
+        const subtracts = document.querySelector('#subtract');
+        subtracts.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            entries[counter] = entry;
+            counter++;
+            console.log(entries);
             const display = document.querySelector('#display');
-            let entries = {
-                p: document.getElementById('display')
-            }
-            let output = Object.values(entries);
-            console.log(output);
-            console.log(entries.p);
-        }); */
-        
+            display.innerHTML = ''
+            let operator = 'subtract';
+            operators[counter] = operator;
+            console.log(operators);
+            return counter;
+        });
+
+        const multiplies = document.querySelector('#multiply');
+        multiplies.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            entries[counter] = entry;
+            counter++;
+            console.log(entries);
+            const display = document.querySelector('#display');
+            display.innerHTML = ''
+            let operator = 'multiply';
+            operators[counter] = operator;
+            console.log(operators);
+            return counter;
+        });
+
+        const divides = document.querySelector('#divide');
+        divides.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            entries[counter] = entry;
+            counter++;
+            console.log(entries);
+            const display = document.querySelector('#display');
+            display.innerHTML = ''
+            let operator = 'divide';
+            operators[counter] = operator;
+            console.log(operators);
+            return counter;
+        });
+
+        function operate(operator, entry1, entry2) {
+            let answer = operator(entry1, entry2);
+            return answer;
+        }
+
+        const equal = document.querySelector('#equal')
+        equal.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            entries[counter] = entry;
+            counter++;
+            console.log(entries);
+            
+        });
+
     </script>
 </body>
