@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<head>
+    <style>
+
+       .header {
+           grid-area: header;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .add {
+           grid-area: add;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .subtract {
+           grid-area: subtract;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .multiply {
+           grid-area: multiply;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .divide {
+           grid-area: divide;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .equal {
+           grid-area: equal;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .one {
+           grid-area: one;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .two {
+           grid-area: two;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .three {
+           grid-area: three;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .four {
+           grid-area: four;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .five {
+           grid-area: five;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .six {
+           grid-area: six;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .seven {
+           grid-area: seven;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .eight {
+           grid-area: eight;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .nine {
+           grid-area: nine;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .zero {
+           grid-area: zero;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+       .clear {
+           grid-area: clear;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+       }
+
+       .wrapper {
+           display: grid;
+           padding: 10px;
+           grid-template-columns: (100px 100px 100px 100px);
+           grid-template-rows: (100px 100px 100px 100px 100px 100px);
+           gap: 10px;
+           border: 2px solid black;
+           grid-template-areas:
+           "header header header header"
+           "clear . . divide"
+           "seven eight nine multiply"
+           "four five six subtract"
+           "one two three add"
+           ". zero . equal";
+       }     
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">ANSWER</div>
+        <div class="clear">C</div>
+        <div></div>
+        <div></div>
+        <div class="divide">/</div>
+        <div class="seven">7</div>
+        <div class="eight">8</div>
+        <div class="nine">9</div>
+        <div class="multiply">*</div>
+        <div class="four">4</div>
+        <div class="five">5</div>
+        <div class="six">6</div>
+        <div class="subtract">-</div>
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+        <div class="add">+</div>
+        <div></div>
+        <div class="zero">0</div>
+        <div></div>
+        <div class="equal">=</div>
+    </div>
+    <script>
+        function add(entry, change) {
+            let answer = entry + change;
+            return answer;
+        };
+
+        function subtract(entry, change) {
+            let answer = entry - change;
+            return answer;
+        };
+
+        function multiply(entry, change) {
+            let answer = entry * change;
+            return answer;
+        };
+
+        function divide(entry, change) {
+            let answer = entry / change;
+            return answer;
+        };
+
+        function operate(operator, entry, change) {
+            let answer = operator(entry, change);
+            return answer;
+        }
+    </script>
+</body>
