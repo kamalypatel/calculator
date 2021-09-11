@@ -201,8 +201,6 @@
     <p>Limitations:</p>
     <ol>
         <li>Does not take order of operations into account.</li>
-        <li>Cannot use futher operations on result.</li>
-        <li>Need to press clear after every result.</li>
         <li>Cannot make mistakes in your keypresses. Please be accurate.</li>
     </ol>
     <div class="wrapper">
@@ -268,64 +266,186 @@
             return answer;
         };
 
+        let equalPressed = false;
+
         const nine = document.querySelector('#nine');
         nine.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '9';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '9'
+            display.innerHTML += '9';
+            };
         })
 
         const eight = document.querySelector('#eight');
         eight.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '8';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '8'
+            display.innerHTML += '8';
+            };
         })
 
         const seven = document.querySelector('#seven');
         seven.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '7';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '7'
+            display.innerHTML += '7';
+            };
         })
 
         const six = document.querySelector('#six');
         six.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '6';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '6'
+            display.innerHTML += '6';
+            };
         })
 
         const five = document.querySelector('#five');
         five.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '5';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '5'
+            display.innerHTML += '5';
+            };
         })
 
         const four = document.querySelector('#four');
         four.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '4';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '4'
+            display.innerHTML += '4';
+            };
         })
 
         const three = document.querySelector('#three');
         three.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '3';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '3'
+            display.innerHTML += '3';
+            };
         })
 
         const two = document.querySelector('#two');
         two.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '2';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '2'
+            display.innerHTML += '2';
+            };
         })
 
         const one = document.querySelector('#one');
         one.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '1';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '1'
+            display.innerHTML += '1';
+            };
         })
 
         const zero = document.querySelector('#zero');
         zero.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '0';
+                equalPressed = false;
+                return counter;
+            } else {
             const display = document.querySelector('#display');
-            display.innerHTML += '0'
+            display.innerHTML += '0';
+            };
         })
 
         counter = 0;
@@ -340,6 +460,7 @@
 
         const plus = document.querySelector('#add');
         plus.addEventListener('click', () => {
+            equalPressed = false;
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
             let operator = 'add';
@@ -354,6 +475,7 @@
 
         const subtracts = document.querySelector('#subtract');
         subtracts.addEventListener('click', () => {
+            equalPressed = false;
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
             let operator = 'subtract';
@@ -368,6 +490,7 @@
 
         const multiplies = document.querySelector('#multiply');
         multiplies.addEventListener('click', () => {
+            equalPressed = false;
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
             let operator = 'multiply';
@@ -382,6 +505,7 @@
 
         const divides = document.querySelector('#divide');
         divides.addEventListener('click', () => {
+            equalPressed = false;
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
             let operator = 'divide';
@@ -496,6 +620,7 @@
 
         const equalPersist = document.querySelector('#equal')
         equalPersist.addEventListener('click', () => {
+            equalPressed = true;
             counter = 0;
             let j = 0;
             for (var member in entries) delete entries[member];
