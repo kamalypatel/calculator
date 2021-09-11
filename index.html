@@ -8,8 +8,10 @@
            height: 40px;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
-           color: red;
+           color: black;
+           font-size: 30px;
            font-weight: bold;
        }
        .backspace {
@@ -19,7 +21,8 @@
            margin-right: auto;
            padding: 10px 24px;
            border: 2px solid black;
-           background-color: red;
+           border-radius: 10px;
+           background-color: black;
            color: white;
            font-weight: bold;
        }
@@ -30,8 +33,9 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
-           background-color: white;
-           color: black;
+           border-radius: 10px;
+           background-color: orange;
+           color: white;
            font-weight: bold;
        }
        .subtract {
@@ -41,8 +45,9 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
-           background-color: white;
-           color: black;
+           border-radius: 10px;
+           background-color: orange;
+           color: white;
            font-weight: bold;
        }
        .multiply {
@@ -52,8 +57,9 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
-           background-color: white;
-           color: black;
+           border-radius: 10px;
+           background-color: orange;
+           color: white;
            font-weight: bold;
        }
        .divide {
@@ -63,8 +69,9 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
-           background-color: white;
-           color: black;
+           border-radius: 10px;
+           background-color: orange;
+           color: white;
            font-weight: bold;
        }
        .equal {
@@ -74,6 +81,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: rgb(11, 202, 11);
            color: white;
        }
@@ -84,6 +92,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -94,6 +103,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -104,6 +114,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -114,6 +125,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -124,6 +136,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -134,6 +147,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -144,6 +158,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -154,6 +169,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -164,6 +180,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -174,6 +191,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -184,6 +202,7 @@
            margin-right: auto;
            padding: 10px 30px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -194,6 +213,7 @@
            margin-right: auto;
            padding: 10px 26px;
            border: 2px solid black;
+           border-radius: 10px;
            background-color: white;
            color: black;
        }
@@ -202,8 +222,9 @@
            display: block;
            margin-left: auto;
            margin-right: auto;
-           padding: 10px 30px;
-           border: 2px solid blue;
+           padding: 10px 25px;
+           border: 2px solid black;
+           border-radius: 10px;
            background-color: black;
            color: white;
        }
@@ -214,9 +235,11 @@
            grid-template-columns: (100px 100px 100px 100px);
            grid-template-rows: (100px 100px 100px 100px 100px 100px);
            min-width: 350px;
-           max-width: 400px;
-           gap: 10px;
+           max-width: 375px;
+           gap: 8px;
+           background-color: rgb(187, 187, 187);
            border: 2px solid black;
+           border-radius: 20px;
            grid-template-areas:
            "header header header header"
            "clear backspace . divide"
@@ -236,7 +259,7 @@
     </ol>
     <div class="wrapper">
         <div class="header" id="display"></div>
-        <button class="clear" id="clear">C</button>
+        <button class="clear" id="clear">AC</button>
         <button class="backspace" id="backspace">Del</button>
         <div></div>
         <button class="divide" id="divide">/</button>
@@ -268,34 +291,6 @@
             for (var member in operators) delete operators[member];
             return counter;
         });
-
-        function add(entry, change) {
-            let entry2 = Number(entry);
-            let change2 = Number(change);
-            let answer = entry2 + change2;
-            return answer;
-        };
-
-        function subtract(entry, change) {
-            let entry2 = Number(entry);
-            let change2 = Number(change); //parseInt is where the decimals are failing!
-            let answer = entry2 - change2;
-            return answer;
-        };
-
-        function multiply(entry, change) {
-            let entry2 = Number(entry);
-            let change2 = Number(change);
-            let answer = entry2 * change2;
-            return answer;
-        };
-
-        function divide(entry, change) {
-            let entry2 = Number(entry);
-            let change2 = Number(change);
-            let answer = entry2 / change2;
-            return answer;
-        };
 
         let equalPressed = false;
 
@@ -334,7 +329,7 @@
                 equalPressed = false;
                 return counter;
             } else {
-                if (document.getElementById('display').textContent.includes('-') == true) {
+                if (document.getElementById('display').textContent.includes('.') == true) {
                 return;
                 } else {
                     const display = document.querySelector('#display');
@@ -647,69 +642,76 @@
 
         const equal = document.querySelector('#equal')
         equal.addEventListener('click', () => {
-            let entry = document.getElementById('display').textContent;
-            entries[counter] = entry;
-            counter++;
-            console.log(counter);
-            console.log(entries);
-            let j = 0;
-            if (counter <= 2) {
-                var atb = {
-                add: function add(entry, change) {
-                    let entry2 = Number(entry);
-                    let change2 = Number(change);
-                    let answer = entry2 + change2;
-                    return answer;
-                },
-
-                subtract: function subtract(entry, change) {
-                    let entry2 = Number(entry);
-                    let change2 = Number(change);
-                    let answer = entry2 - change2;
-                    return answer;
-                },
-
-                multiply: function multiply(entry, change) {
-                    let entry2 = Number(entry);
-                    let change2 = Number(change);
-                    let answer = entry2 * change2;
-                    return answer;
-                },
-
-                divide: function divide(entry, change) {
-                    let entry2 = Number(entry);
-                    let change2 = Number(change);
-                    let answer = entry2 / change2;
-                    return answer;
-                }
-            };
-
-            let answer = atb[operators['0']](entries[0], entries[1]);
-            console.log(answer)
-            const result = document.querySelector('#display');
-            result.innerHTML = '';
-            result.innerHTML = String(answer);
-            return answer;
+            if (document.getElementById('display').textContent == "") {
+                return;
             } else {
-            while (j < counter - 1) {
-                entries[j + 1] = operate(operators[j], entries[j], entries[j + 1]);
+                let entry = document.getElementById('display').textContent;
+                entries[counter] = entry;
+                counter++;
+                console.log(counter);
+                console.log(entries);
+                let j = 0;
+                if (counter <= 2) {
+                    var atb = {
+                    add: function add(entry, change) {
+                        let entry2 = Number(entry);
+                        let change2 = Number(change);
+                        let answer = entry2 + change2;
+                        return answer;
+                    },
+
+                    subtract: function subtract(entry, change) {
+                        let entry2 = Number(entry);
+                        let change2 = Number(change);
+                        let answer = entry2 - change2;
+                        return answer;
+                    },
+
+                    multiply: function multiply(entry, change) {
+                        let entry2 = Number(entry);
+                        let change2 = Number(change);
+                        let answer = entry2 * change2;
+                        return answer;
+                    },
+
+                    divide: function divide(entry, change) {
+                        let entry2 = Number(entry);
+                        let change2 = Number(change);
+                        let answer = entry2 / change2;
+                        return answer;
+                    }
+                };
+
+                let answer = atb[operators['0']](entries[0], entries[1]);
+                console.log(answer)
                 const result = document.querySelector('#display');
                 result.innerHTML = '';
-                j += 1;
-                let answer = entries[j];
-                console.log(answer);
-            };
-            const result = document.querySelector('#display');
-            result.innerHTML = '';
-            result.innerHTML = String(answer);
-            return answer;
-            };
-            return answer;
-        }
-        );
+                result.innerHTML = String(answer);
+                return answer;
+                } else {
+                while (j < counter - 1) {
+                    entries[j + 1] = operate(operators[j], entries[j], entries[j + 1]);
+                    const result = document.querySelector('#display');
+                    result.innerHTML = '';
+                    j += 1;
+                    let answer = entries[j];
+                    console.log(answer);
+                };
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                result.innerHTML = String(answer);
+                return answer;
+                };
+                return answer;
+            }
+            }
+            );
 
         const equalPersist = document.querySelector('#equal')
         equalPersist.addEventListener('click', () => {
+            if (document.getElementById('display').textContent == "") {
+                return;
+            } else {
             equalPressed = true;
             counter = 0;
             let j = 0;
@@ -719,6 +721,7 @@
             entries[counter] = answer;
             console.log(entries);
             return counter;
+        }
         }
         );
 
