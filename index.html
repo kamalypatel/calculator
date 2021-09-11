@@ -12,6 +12,17 @@
            color: red;
            font-weight: bold;
        }
+       .backspace {
+           grid-area: backspace;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 22px;
+           border: 2px solid black;
+           background-color: red;
+           color: white;
+           font-weight: bold;
+       }
        .add {
            grid-area: add;
            display: block;
@@ -62,8 +73,8 @@
            margin-left: auto;
            margin-right: auto;
            padding: 10px 30px;
-           border: 2px solid blue;
-           background-color: black;
+           border: 2px solid black;
+           background-color: rgb(11, 202, 11);
            color: white;
        }
        .one {
@@ -188,7 +199,7 @@
            border: 2px solid black;
            grid-template-areas:
            "header header header header"
-           "clear . . divide"
+           "clear backspace . divide"
            "seven eight nine multiply"
            "four five six subtract"
            "one two three add"
@@ -202,11 +213,12 @@
     <ol>
         <li>Does not take order of operations into account.</li>
         <li>Cannot make mistakes in your keypresses. Please be accurate.</li>
+        <li>Cannot reassign operation after selecting one. Please be accurate.</li>
     </ol>
     <div class="wrapper">
         <div class="header" id="display"></div>
         <button class="clear" id="clear">C</button>
-        <div></div>
+        <div class="backspace" id="backspace">Del</div>
         <div></div>
         <button class="divide" id="divide">/</button>
         <button class="seven" id="seven">7</button>
@@ -516,6 +528,15 @@
             const display = document.querySelector('#display');
             display.innerHTML = ''
             return counter;
+        });
+
+        const backspace = document.querySelector('#backspace');
+        backspace.addEventListener('click', () => {
+            let entry = document.getElementById('display').textContent;
+            let editedText = entry.slice(0, -1);
+            console.log(editedText)
+            const display = document.querySelector('#display');
+            display.innerHTML = editedText;
         });
 
         function operate(operator, entry1, entry2) {
