@@ -17,7 +17,7 @@
            display: block;
            margin-left: auto;
            margin-right: auto;
-           padding: 10px 22px;
+           padding: 10px 24px;
            border: 2px solid black;
            background-color: red;
            color: white;
@@ -177,6 +177,26 @@
            background-color: white;
            color: black;
        }
+       .decimal {
+           grid-area: decimal;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 30px;
+           border: 2px solid black;
+           background-color: white;
+           color: black;
+       }
+       .negative {
+           grid-area: negative;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px 26px;
+           border: 2px solid black;
+           background-color: white;
+           color: black;
+       }
        .clear {
            grid-area: clear;
            display: block;
@@ -203,7 +223,7 @@
            "seven eight nine multiply"
            "four five six subtract"
            "one two three add"
-           ". zero . equal";
+           "decimal zero negative equal";
        }     
     </style>
 </head>
@@ -212,13 +232,12 @@
     <p>Limitations:</p>
     <ol>
         <li>Does not take order of operations into account.</li>
-        <li>Cannot make mistakes in your keypresses. Please be accurate.</li>
         <li>Cannot reassign operation after selecting one. Please be accurate.</li>
     </ol>
     <div class="wrapper">
         <div class="header" id="display"></div>
         <button class="clear" id="clear">C</button>
-        <div class="backspace" id="backspace">Del</div>
+        <button class="backspace" id="backspace">Del</button>
         <div></div>
         <button class="divide" id="divide">/</button>
         <button class="seven" id="seven">7</button>
@@ -233,9 +252,9 @@
         <button class="two" id="two">2</button>
         <button class="three" id="three">3</button>
         <button class="add" id="add">+</button>
-        <div></div>
+        <button class="decimal" id="decimal">.</button>
         <button class="zero" id="zero">0</button>
-        <div></div>
+        <button class="negative" id="negative">+/-</button>
         <button class="equal" id="equal">=</button>
     </div>
     <script>
@@ -251,34 +270,78 @@
         });
 
         function add(entry, change) {
-            let entry2 = parseInt(entry, 10);
-            let change2 = parseInt(change, 10);
+            let entry2 = Number(entry);
+            let change2 = Number(change);
             let answer = entry2 + change2;
             return answer;
         };
 
         function subtract(entry, change) {
-            let entry2 = parseInt(entry, 10);
-            let change2 = parseInt(change, 10);
+            let entry2 = Number(entry);
+            let change2 = Number(change); //parseInt is where the decimals are failing!
             let answer = entry2 - change2;
             return answer;
         };
 
         function multiply(entry, change) {
-            let entry2 = parseInt(entry, 10);
-            let change2 = parseInt(change, 10);
+            let entry2 = Number(entry);
+            let change2 = Number(change);
             let answer = entry2 * change2;
             return answer;
         };
 
         function divide(entry, change) {
-            let entry2 = parseInt(entry, 10);
-            let change2 = parseInt(change, 10);
+            let entry2 = Number(entry);
+            let change2 = Number(change);
             let answer = entry2 / change2;
             return answer;
         };
 
         let equalPressed = false;
+
+        const negative = document.querySelector('#negative');
+        negative.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '-';
+                equalPressed = false;
+                return counter;
+            } else {
+                if (document.getElementById('display').textContent.includes('-') == true) {
+                return;
+                } else {
+                    const display = document.querySelector('#display');
+                    display.innerHTML += '-';
+                };
+            };
+        })
+
+        const decimal = document.querySelector('#decimal');
+        decimal.addEventListener('click', () => {
+            if (equalPressed === true) {
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
+                counter = 0;
+                let j = 0;
+                for (var member in entries) delete entries[member];
+                const display = document.querySelector('#display');
+                display.innerHTML += '.';
+                equalPressed = false;
+                return counter;
+            } else {
+                if (document.getElementById('display').textContent.includes('-') == true) {
+                return;
+                } else {
+                    const display = document.querySelector('#display');
+                    display.innerHTML += '.';
+                };
+            };
+        })
 
         const nine = document.querySelector('#nine');
         nine.addEventListener('click', () => {
@@ -532,40 +595,46 @@
 
         const backspace = document.querySelector('#backspace');
         backspace.addEventListener('click', () => {
+            if (document.getElementById('display').textContent == Infinity) {
+                return;
+            } else if (document.getElementById('display').textContent == -Infinity) {
+                return;
+            } else {
             let entry = document.getElementById('display').textContent;
             let editedText = entry.slice(0, -1);
             console.log(editedText)
             const display = document.querySelector('#display');
             display.innerHTML = editedText;
+            };
         });
 
         function operate(operator, entry1, entry2) {
             console.log(operator);
             var at = {
                 add: function add(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 + change2;
                     return answer;
                 },
 
                 subtract: function subtract(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 - change2;
                     return answer;
                 },
 
                 multiply: function multiply(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 * change2;
                     return answer;
                 },
 
                 divide: function divide(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 / change2;
                     return answer;
                 }
@@ -587,29 +656,29 @@
             if (counter <= 2) {
                 var atb = {
                 add: function add(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 + change2;
                     return answer;
                 },
 
                 subtract: function subtract(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 - change2;
                     return answer;
                 },
 
                 multiply: function multiply(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 * change2;
                     return answer;
                 },
 
                 divide: function divide(entry, change) {
-                    let entry2 = parseInt(entry, 10);
-                    let change2 = parseInt(change, 10);
+                    let entry2 = Number(entry);
+                    let change2 = Number(change);
                     let answer = entry2 / change2;
                     return answer;
                 }
