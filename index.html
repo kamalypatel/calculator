@@ -316,7 +316,7 @@
         plus.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
-            let operator = add;
+            let operator = 'add';
             operators[counter] = operator;
             console.log(operators);
             counter++;
@@ -330,7 +330,7 @@
         subtracts.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
-            let operator = subtract;
+            let operator = 'subtract';
             operators[counter] = operator;
             console.log(operators);
             counter++;
@@ -344,7 +344,7 @@
         multiplies.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
-            let operator = multiply;
+            let operator = 'multiply';
             operators[counter] = operator;
             console.log(operators);
             counter++;
@@ -358,7 +358,7 @@
         divides.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
-            let operator = divide;
+            let operator = 'divide';
             operators[counter] = operator;
             console.log(operators);
             counter++;
@@ -369,10 +369,42 @@
         });
 
         function operate(operator, entry1, entry2) {
-            let answer = operator(entry1, entry2);
+            console.log(operator);
+            var at = {
+                add: function add(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 + change2;
+                    return answer;
+                },
+
+                subtract: function subtract(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 - change2;
+                    return answer;
+                },
+
+                multiply: function multiply(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 * change2;
+                    return answer;
+                },
+
+                divide: function divide(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 / change2;
+                    return answer;
+                }
+            };
+
+            let answer = at[operator](entry1, entry2);
             console.log(answer);
             return answer;
         }
+
 
         const equal = document.querySelector('#equal')
         equal.addEventListener('click', () => {
@@ -380,14 +412,17 @@
             entries[counter] = entry;
             counter++;
             console.log(entries);
-            do {
-                let j = 0;
-                console.log(operators[j]);
-                let answer = operate(operators[j], entries[0], entries[1])
-            } while (j < counter) {
-                j++;
+            let j = 0;
+
+            let answer = operate(operators[j], entries[j], entries[1])
+            while (j < counter) {
+                j += 1;
                 answer = operate(operators[j], answer, entries[j + 1]);
+                return answer;
             };
+            console.log('hey');
+            const result = document.querySelector('#display');
+            result.innerHTML = 'answer';
         });
 
     </script>
