@@ -400,9 +400,8 @@
                 }
             };
 
-            let answer = at[operator](entry1, entry2);
+            return answer = at[operator](entry1, entry2);
             console.log(answer);
-            return answer;
         }
 
 
@@ -411,19 +410,57 @@
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
             counter++;
+            console.log(counter);
             console.log(entries);
             let j = 0;
+            if (counter <= 2) {
+                var atb = {
+                add: function add(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 + change2;
+                    return answer;
+                },
 
-            let answer = operate(operators[j], entries[j], entries[1])
-            while (j < counter) {
+                subtract: function subtract(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 - change2;
+                    return answer;
+                },
+
+                multiply: function multiply(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 * change2;
+                    return answer;
+                },
+
+                divide: function divide(entry, change) {
+                    let entry2 = parseInt(entry, 10);
+                    let change2 = parseInt(change, 10);
+                    let answer = entry2 / change2;
+                    return answer;
+                }
+            };
+
+            let answer = atb[operators['0']](entries[0], entries[1]);
+            console.log(answer)
+            return answer;
+            } else {
+            while (j < counter - 1) {
+                entries[j + 1] = operate(operators[j], entries[j], entries[j + 1]);
+                const result = document.querySelector('#display');
+                result.innerHTML = '';
                 j += 1;
-                answer = operate(operators[j], answer, entries[j + 1]);
-                return answer;
+                let answer = entries[j];
+                console.log(answer);
             };
             console.log('hey');
             const result = document.querySelector('#display');
-            result.innerHTML = 'answer';
-        });
+            result.innerHTML = '';
+            result.innerHTML = String(answer);
+        };});
 
     </script>
 </body>
