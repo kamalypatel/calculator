@@ -488,6 +488,25 @@
             const result = document.querySelector('#display');
             result.innerHTML = '';
             result.innerHTML = String(answer);
-        };});
+            return answer;
+            };
+            return answer;
+        }
+        );
+
+        const equalPersist = document.querySelector('#equal')
+        equalPersist.addEventListener('click', () => {
+            counter = 0;
+            let j = 0;
+            for (var member in entries) delete entries[member];
+            for (var member in operators) delete operators[member];
+            let answer = document.getElementById('display').textContent;
+            entries[counter] = answer;
+            console.log(entries);
+            return counter;
+        }
+        );
+
+
     </script>
 </body>
