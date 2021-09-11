@@ -215,22 +215,30 @@
     </div>
     <script>
         function add(entry, change) {
-            let answer = entry + change;
+            let entry2 = parseInt(entry, 10);
+            let change2 = parseInt(change, 10);
+            let answer = entry2 + change2;
             return answer;
         };
 
         function subtract(entry, change) {
-            let answer = entry - change;
+            let entry2 = parseInt(entry, 10);
+            let change2 = parseInt(change, 10);
+            let answer = entry2 - change2;
             return answer;
         };
 
         function multiply(entry, change) {
-            let answer = entry * change;
+            let entry2 = parseInt(entry, 10);
+            let change2 = parseInt(change, 10);
+            let answer = entry2 * change2;
             return answer;
         };
 
         function divide(entry, change) {
-            let answer = entry / change;
+            let entry2 = parseInt(entry, 10);
+            let change2 = parseInt(change, 10);
+            let answer = entry2 / change2;
             return answer;
         };
 
@@ -308,13 +316,13 @@
         plus.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
+            let operator = add;
+            operators[counter] = operator;
+            console.log(operators);
             counter++;
             console.log(entries);
             const display = document.querySelector('#display');
             display.innerHTML = ''
-            let operator = 'add';
-            operators[counter] = operator;
-            console.log(operators);
             return counter;
         });
 
@@ -322,13 +330,13 @@
         subtracts.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
+            let operator = subtract;
+            operators[counter] = operator;
+            console.log(operators);
             counter++;
             console.log(entries);
             const display = document.querySelector('#display');
             display.innerHTML = ''
-            let operator = 'subtract';
-            operators[counter] = operator;
-            console.log(operators);
             return counter;
         });
 
@@ -336,13 +344,13 @@
         multiplies.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
+            let operator = multiply;
+            operators[counter] = operator;
+            console.log(operators);
             counter++;
             console.log(entries);
             const display = document.querySelector('#display');
             display.innerHTML = ''
-            let operator = 'multiply';
-            operators[counter] = operator;
-            console.log(operators);
             return counter;
         });
 
@@ -350,18 +358,19 @@
         divides.addEventListener('click', () => {
             let entry = document.getElementById('display').textContent;
             entries[counter] = entry;
+            let operator = divide;
+            operators[counter] = operator;
+            console.log(operators);
             counter++;
             console.log(entries);
             const display = document.querySelector('#display');
             display.innerHTML = ''
-            let operator = 'divide';
-            operators[counter] = operator;
-            console.log(operators);
             return counter;
         });
 
         function operate(operator, entry1, entry2) {
             let answer = operator(entry1, entry2);
+            console.log(answer);
             return answer;
         }
 
@@ -371,7 +380,14 @@
             entries[counter] = entry;
             counter++;
             console.log(entries);
-            
+            do {
+                let j = 0;
+                console.log(operators[j]);
+                let answer = operate(operators[j], entries[0], entries[1])
+            } while (j < counter) {
+                j++;
+                answer = operate(operators[j], answer, entries[j + 1]);
+            };
         });
 
     </script>
